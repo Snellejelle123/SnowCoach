@@ -1,0 +1,21 @@
+.grid {
+    display: grid;
+    gap: 1rem;
+
+}
+
+a.kaart {
+    color: var(--blue-900);
+    background: var(--white);
+    border: 1px solid var(--blue-100);
+    border-radius: var(--radius-lg);
+    padding: 1.25rem;
+    text-decoration: none;
+    display: block;
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.kaart:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+}
