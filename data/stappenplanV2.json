@@ -1,0 +1,923 @@
+{
+    "id": "root",
+    "name": "SnowCoach",
+    "type": "root",
+    "children": [
+        {
+            "id": "gewenning",
+            "name": "Gewenning",
+            "type": "categorie",
+            "children": [
+                {
+                    "id": "gewenning-1",
+                    "name": "Uitrusting",
+                    "type": "oefening",
+                    "difficulty": "beginner",
+                    "url": "oefening.html?id=gewenning-1",
+                    "beschrijving": "Wat heb je nodig voor je eerste dag op de piste?",
+                    "benodigdheden_intro": "Zorg dat je de volgende spullen bij je hebt (niet alles is verplicht maar is aangeraden — kijk zeker naar het weer :):",
+                    "benodigdheden": [
+                        "Snowboard",
+                        "Bindingen",
+                        "Snowboardboots",
+                        "Helm",
+                        "Polsbeschermers",
+                        "Skibroek en jas",
+                        "Handschoenen",
+                        "Skibril",
+                        "Warme kleding (thermo-ondergoed, fleecetrui)"
+                    ],
+                    "tips": [
+                        "Huur je eerste snowboard — je leert best met een superflat board.",
+                        "Zorg dat je snowboard tussen je kin en neus uitkomt als je rechtop staat.",
+                        "Zorg dat de bindingen in duck stance staan (+12/-12 graden) zodat je makkelijk switch kan leren rijden.",
+                        "Zorg dat de snowboardboots goed aansluiten — tenen raken zacht de voorkant en bij doorgebogen knieën komen ze los."
+                    ]
+                },
+                {
+                    "id": "gewenning-2",
+                    "name": "Snowboard anatomie",
+                    "type": "oefening",
+                    "difficulty": "beginner",
+                    "url": "oefening.html?id=gewenning-2",
+                    "beschrijving": "Alle specifieke namen van het snowboard. Probeer deze te onthouden want ze worden gebruikt in de volgende oefeningen.",
+                    "uitleg": [
+                        {
+                            "type": "lijst",
+                            "titel": "Onderdelen van het snowboard:",
+                            "items": [
+                                "Nose: de voorkant van het board",
+                                "Tail: de achterkant van het board",
+                                "Toeside: de teenzijde",
+                                "Heelside: de hielzijde",
+                                "Waist: het smalste deel van het board",
+                                "Effectieve kantenlengte: het deel van de kanten dat contact maakt met de sneeuw",
+                                "Taillering: de vorm van het board die de radius van de bocht bepaalt"
+                            ]
+                        },
+                        {
+                            "type": "lijst",
+                            "titel": "Positie op het board:",
+                            "items": [
+                                "Regular: linkervoet vooraan",
+                                "Goofy: rechtervoet vooraan",
+                                "Switch: rijden met de niet-voorkeursvoet vooraan",
+                                "Duck stance: bindingen uitgedraaid (+12/-12 graden)"
+                            ]
+                        }
+                    ],
+                    "fotos": [
+                        "../images/binding.webp",
+                        "../images/snowboardanatomie.webp"
+                    ]
+                },
+                {
+                    "id": "gewenning-3",
+                    "name": "Basishouding",
+                    "type": "oefening",
+                    "difficulty": "beginner",
+                    "url": "oefening.html?id=gewenning-3",
+                    "houding": "basishouding",
+                    "beschrijving": "De basishouding is de fundering van alles wat je leert. Een lage basishouding brengt het zwaartepunt dichter bij de sneeuw wat zorgt voor meer stabiliteit en een beter evenwicht.",
+                    "uitleg": [
+                        {
+                            "type": "lijst",
+                            "titel": "Correcte basishouding:",
+                            "items": [
+                                "Knieën buigen en naar buiten duwen",
+                                "Handen evenwijdig met je board (boven nose en tail)",
+                                "Hoofd richten naar de gewenste glijrichting",
+                                "Rechte rug",
+                                "Gewicht verdelen over beide benen, zwaartepunt centraal",
+                                "Lage positie — zwaartepunt dichter bij sneeuw = meer stabiliteit"
+                            ]
+                        }
+                    ],
+                    "oefenvormen": [
+                        {
+                            "titel": "Zwaartepunt voelen",
+                            "beschrijving": "Laat de leerling op gestrekte benen staan, dan doorbuigen. Laat hen voelen hoe het evenwicht verandert bij hoge vs lage positie.",
+                            "doel": "Gevoel voor zwaartepunt en stabiliteit"
+                        },
+                        {
+                            "titel": "Spiegelspel",
+                            "beschrijving": "Lesgever doet een houding voor, leerlingen kopiëren. Wijs specifiek op: knieën naar buiten, rechte rug, handen evenwijdig.",
+                            "doel": "Correct aannemen van basishouding"
+                        },
+                        {
+                            "titel": "Hoeveel vingers?",
+                            "beschrijving": "Lesgever staat voor de leerling en steekt vingers op. Leerling moet hoofd omhoog houden en kijken — niet naar de grond.",
+                            "doel": "Hoofd omhoog en kijken in de glijrichting"
+                        }
+                    ],
+                    "tips": [
+                        "Blijf bij elke volgende oefening attent voor de basishouding.",
+                        "Stijve benen zijn de meest gemaakte fout — hou je knieën altijd licht gebogen.",
+                        "Het aanleren van een juiste basishouding is cruciaal — geautomatiseerde fouten zijn later bijzonder moeilijk te herstellen."
+                    ]
+                },
+                {
+                    "id": "gewenning-4",
+                    "name": "Vallen en opstaan",
+                    "type": "oefening",
+                    "difficulty": "beginner",
+                    "url": "oefening.html?id=gewenning-4",
+                    "beschrijving": "Leren vallen en opstaan is een van de belangrijkste dingen die je moet leren als snowboarder. Het verhoogt je zelfvertrouwen en helpt je sneller te leren.",
+                    "uitleg": [
+                        {
+                            "type": "lijst",
+                            "titel": "Hoe val je correct:",
+                            "items": [
+                                "Voorwaarts: val op knieën en onderarm",
+                                "Achterwaarts: maak een bolletje en rol af op je rug",
+                                "Zet NOOIT je handen!"
+                            ]
+                        },
+                        {
+                            "type": "lijst",
+                            "titel": "Hoe sta je op:",
+                            "items": [
+                                "Van op de knieën: duw je af met je handen en strek de benen",
+                                "Van op het achterwerk: breng je board zo dicht mogelijk bij je lichaam, duw af met je handen en strek de benen",
+                                "Board staat dwars op de hellingslijn"
+                            ]
+                        }
+                    ],
+                    "oefenvormen": [
+                        {
+                            "titel": "Gecontroleerd vallen oefenen",
+                            "beschrijving": "Op vlak terrein bewust laten vallen voor- en achterwaarts, eerst zonder board dan met board aan. Beginners zijn vaak bang om te vallen — door het te oefenen neemt de angst af.",
+                            "doel": "Veilig vallen zonder angst"
+                        },
+                        {
+                            "titel": "Opstaan wedstrijd",
+                            "beschrijving": "Wie staat het snelst op vanuit rugligging? Maakt het leren leuk en automatiseert het opstaan.",
+                            "doel": "Opstaan automatiseren"
+                        }
+                    ],
+                    "tips": [
+                        "Leer ook het board draaien zodat je zelf kan kiezen op welke manier je opstaat."
+                    ]
+                },
+                {
+                    "id": "gewenning-5",
+                    "name": "Skaten",
+                    "type": "oefening",
+                    "difficulty": "beginner",
+                    "url": "oefening.html?id=gewenning-5",
+                    "beschrijving": "Skaten is je eerste glijervaring op het snowboard — je duwt je af met je achterste voet terwijl je voorste voet vastgebonden is.",
+                    "uitleg": [
+                        {
+                            "type": "tekst",
+                            "inhoud": "Bevestig de voorste voet in de binding en tracht te glijden door je af te duwen met de achterste voet. Plaats die voet achter het board!"
+                        },
+                        {
+                            "type": "lijst",
+                            "titel": "Skaten met bijzetten:",
+                            "items": [
+                                "Duw je af met de achterste voet",
+                                "Plaats je achterste voet dan mee op het board, tegen de achterste binding",
+                                "Neem je basishouding aan"
+                            ]
+                        }
+                    ],
+                    "oefenvormen": [
+                        {
+                            "titel": "Skate-race",
+                            "beschrijving": "Wie geraakt het verst met één afzet? Stimuleert een krachtige afzet en balans op één voet.",
+                            "doel": "Krachtige afzet en balans op één voet"
+                        },
+                        {
+                            "titel": "Slalom skaten",
+                            "beschrijving": "Sla een slalom door poortjes of handschoenen op de grond. Let op dat leerling in de rijrichting kijkt.",
+                            "doel": "Richting bepalen tijdens het skaten"
+                        }
+                    ],
+                    "tips": [
+                        "Kijk in de richting waar je naartoe gaat, niet naar je voeten."
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "hellingslijn",
+            "name": "Afdalen in de hellingslijn",
+            "type": "categorie",
+            "children": [
+                {
+                    "id": "hellingslijn-1",
+                    "name": "Glijden in de hellingslijn",
+                    "type": "oefening",
+                    "difficulty": "beginner",
+                    "url": "oefening.html?id=hellingslijn-1",
+                    "beschrijving": "Je eerste echte afdaling — glijden in de hellingslijn op een lichte helling met natuurlijke uitloop.",
+                    "uitleg": [
+                        {
+                            "type": "tekst",
+                            "inhoud": "Terreinkeuze is zeer belangrijk! Kies een lichte helling met een natuurlijke uitloop. Basishouding is bij deze oefening extra belangrijk."
+                        },
+                        {
+                            "type": "lijst",
+                            "titel": "Oefeningen met één voet vast:",
+                            "items": [
+                                "Knieën buigen en strekken (schouders blijven recht)",
+                                "Roep hoeveel vingers de instructeur opsteekt (instructeur staat beneden)"
+                            ]
+                        },
+                        {
+                            "type": "lijst",
+                            "titel": "Oefeningen met twee voeten vast:",
+                            "items": [
+                                "De hand van de instructeur tikken",
+                                "Sneeuwbal voor de nose laten vallen",
+                                "Tussen poortjes glijden",
+                                "Kleine sprongen"
+                            ]
+                        }
+                    ],
+                    "oefenvormen": [
+                        {
+                            "titel": "Tail opheffen",
+                            "beschrijving": "Tijdens het glijden de tail optillen. Dwingt gewicht naar de voorste voet en centraal. Corrigeert leunen op achterste voet.",
+                            "doel": "Gewicht centraal brengen"
+                        },
+                        {
+                            "titel": "Terrein progressief aanpassen",
+                            "beschrijving": "Begin op bijna vlak terrein, bouw snelheid progressief op. Pas ook bijkomende oefeningen toe tijdens het glijden (tail opheffen, hand instructeur tikken).",
+                            "doel": "Vertrouwen opbouwen met hogere snelheden"
+                        }
+                    ]
+                },
+                {
+                    "id": "hellingslijn-2",
+                    "name": "Bergwaarts wenden",
+                    "type": "oefening",
+                    "difficulty": "beginner",
+                    "url": "oefening.html?id=hellingslijn-2",
+                    "beschrijving": "Bergwaarts wenden is één van de belangrijkste oefeningen. We maken gebruik van de waaiermethode — steeds grotere bogen richting de hellingslijn.",
+                    "uitleg": [
+                        {
+                            "type": "tekst",
+                            "inhoud": "Het onkanten van het board is de eerste stap: eerst ontkanten ter hoogte van de voorste voet, daarna ook de achterste. Hierdoor gaat de nose richting hellingslijn sturen."
+                        },
+                        {
+                            "type": "lijst",
+                            "titel": "Essentiële acties bij de inzet:",
+                            "items": [
+                                "Ontkanten: eerst voorste voet, dan achterste voet",
+                                "Bekkeninzet: draai het bekken richting hellingslijn",
+                                "Inclinatie: het lichaam licht naar de binnenzijde van de bocht",
+                                "Kijk waarnaar je gaat, niet naar het dal"
+                            ]
+                        }
+                    ],
+                    "oefenvormen": [
+                        {
+                            "titel": "Waaiermethode stap voor stap",
+                            "beschrijving": "Markeer de banen in de sneeuw. Laat leerlingen steeds iets verder in de hellingslijn gaan voor ze bergwaarts wenden. Begin altijd op de hielzijde.",
+                            "doel": "Progressief comfort in de hellingslijn opbouwen"
+                        },
+                        {
+                            "titel": "Gaspedaal oefening",
+                            "beschrijving": "Vraag leerling om de hiel lichtjes in te drukken als een gaspedaal. Engels systeem: 'druk je pedalen in'. Helpt inkanting visualiseren.",
+                            "doel": "Kantengevoel bewust maken"
+                        },
+                        {
+                            "titel": "Zo hoog mogelijk eindigen",
+                            "beschrijving": "Traverseer de piste en probeer zo hoog mogelijk te eindigen. Leert efficiënt gebruik van kanten.",
+                            "doel": "Kantengevoel en efficiënt remmen"
+                        }
+                    ],
+                    "tips": [
+                        "Doe deze oefening in beide richtingen, start met de hielzijde.",
+                        "Hielzijde is het gemakkelijkste voor beginners — ze zien waarnaar ze gaan.",
+                        "Uitsturen in een vloeiende beweging — nooit bruusk.",
+                        "Vermijd overrotatie: niet te sterk indraaien met de romp."
+                    ]
+                },
+                {
+                    "id": "hellingslijn-3",
+                    "name": "Afglijden en trapvorm",
+                    "type": "oefening",
+                    "difficulty": "beginner",
+                    "url": "oefening.html?id=hellingslijn-3",
+                    "beschrijving": "Afglijden en trapvorm leer je hoe je gecontroleerd kunt remmen en stoppen op de helling.",
+                    "uitleg": [
+                        {
+                            "type": "lijst",
+                            "titel": "Techniek:",
+                            "items": [
+                                "Board staat dwars op de hellingslijn",
+                                "Afwisselend remmen en versnellen door de inkanting te vergroten of te verkleinen",
+                                "Niet naar de grond kijken, wel naar voor",
+                                "Begin op de hielzijde"
+                            ]
+                        }
+                    ],
+                    "oefenvormen": [
+                        {
+                            "titel": "Stopteken",
+                            "beschrijving": "Lesgever geeft stopteken — leerling moet stoppen zonder evenwicht te verliezen. Varieer het moment van het teken.",
+                            "doel": "Remmen op commando automatiseren"
+                        },
+                        {
+                            "titel": "Met twee vasthouden",
+                            "beschrijving": "Twee leerlingen houden elkaar vast en oefenen samen de trapvorm. Geeft extra vertrouwen bij angstige beginners.",
+                            "doel": "Veiligheidsgevoel en kantengevoel combineren"
+                        }
+                    ],
+                    "tips": [
+                        "Oefen ook op de teenzijde zodra de hielzijde goed zit.",
+                        "Op signaal kunnen stoppen zonder evenwicht te verliezen."
+                    ]
+                },
+                {
+                    "id": "hellingslijn-4",
+                    "name": "Traverseren",
+                    "type": "oefening",
+                    "difficulty": "beginner",
+                    "url": "oefening.html?id=hellingslijn-4",
+                    "beschrijving": "Een traversée is een dwarse verplaatsing ten opzichte van de hellingslijn. De moeilijkheid hangt af van terreinkeuze, niveau en sneeuwkwaliteit.",
+                    "uitleg": [
+                        {
+                            "type": "lijst",
+                            "titel": "Aandachtspunten:",
+                            "items": [
+                                "Gewicht op de bergwaartse kante",
+                                "Kijk in de rijrichting",
+                                "Basishouding bewaren",
+                                "Begin in heelside positie — makkelijker voor beginners"
+                            ]
+                        }
+                    ],
+                    "oefenvormen": [
+                        {
+                            "titel": "Zo hoog mogelijk",
+                            "beschrijving": "Traverseer de piste en probeer zo hoog mogelijk te eindigen. Geeft duidelijk doel en leert efficiënt traverseren.",
+                            "doel": "Efficiënt traverseren en kantengevoel"
+                        },
+                        {
+                            "titel": "Beginoefening voor switch",
+                            "beschrijving": "Traverseer ook in switch richting. Hierbij keren leerlingen soms terug naar vroegere gewoontes — extra aandacht voor evenwicht.",
+                            "doel": "Switch rijden introduceren"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "bochten",
+            "name": "Bochten",
+            "type": "categorie",
+            "children": [
+                {
+                    "id": "bochten-1",
+                    "name": "De bocht in 3 fasen",
+                    "type": "oefening",
+                    "difficulty": "beginner",
+                    "url": "oefening.html?id=bochten-1",
+                    "beschrijving": "De gaspedaal is de voorste voet, de rem is de achterste voet. Door je voorste voet in de sneeuw te duwen ga je versnellen, door de achterste voet in te duwen ga je remmen.",
+                    "uitleg": [
+                        {
+                            "type": "lijst",
+                            "titel": "De 3 fasen van een bocht:",
+                            "items": [
+                                "Instuurfase: lichte gewichtsverplaatsing naar voor, ontkanten en gaspedaal induwen",
+                                "Glijfase: glijden in de hellingslijn, evenwicht centraal, leun op de bal van beide voeten",
+                                "Uitstuurfase: rem induwen (achterste voet) — hierdoor ga je afglijden en remmen"
+                            ]
+                        }
+                    ],
+                    "oefenvormen": [
+                        {
+                            "titel": "Fase per fase apart oefenen",
+                            "beschrijving": "Oefen elke fase apart: eerst instuurfase, dan glijfase, dan uitstuurfase. Combineer pas daarna. Gebruik de traversée-fase als voorbereiding op de volgende bocht.",
+                            "doel": "Elke fase bewust leren uitvoeren"
+                        },
+                        {
+                            "titel": "Lichte rotatie als hulp",
+                            "beschrijving": "Als leerling er niet in slaagt: lichte rotatie vanuit het bovenlichaam en bekken richting de bocht. Let op: vermijd overrotatie.",
+                            "doel": "Eerste bochten initiëren bij moeilijkheden"
+                        }
+                    ],
+                    "tips": [
+                        "Kijk naar waar je wil gaan — niet naar het board.",
+                        "Traversée-fase mag eerst langer zijn om de volgende bocht voor te bereiden.",
+                        "Vertrek steeds vanuit een centrale positie met gewichtsverspreiding over beide benen."
+                    ]
+                },
+                {
+                    "id": "bochten-2",
+                    "name": "Elementaire beweging",
+                    "type": "oefening",
+                    "difficulty": "gemiddeld",
+                    "url": "oefening.html?id=bochten-2",
+                    "beschrijving": "De elementaire beweging wordt gekenmerkt door rotatie en afgegleden uitsturen. De traversée-fase wordt steeds korter.",
+                    "uitleg": [
+                        {
+                            "type": "tekst",
+                            "inhoud": "De elementaire inzet verloopt via ontkanting (eerst voorste voet), bekkeninzet en inclinatie. Het board stuurt af via een afgegleden bergwaarts wenden."
+                        },
+                        {
+                            "type": "lijst",
+                            "titel": "Progressie:",
+                            "items": [
+                                "Verkort het stuk glijden in hellingslijn progressief",
+                                "Pas het terrein aan: van zeer licht hellend naar meer hellend",
+                                "Backside en frontside aaneenschakelen = globaalvorm elementaire beweging"
+                            ]
+                        }
+                    ],
+                    "oefenvormen": [
+                        {
+                            "titel": "Markeringen in de sneeuw",
+                            "beschrijving": "Zet markeringen in de sneeuw waar de leerling telkens eerder moet beginnen met insturen. Geeft een visueel en duidelijk doel.",
+                            "doel": "Traversée-fase progressief verkorten"
+                        },
+                        {
+                            "titel": "Terrein aanpassen",
+                            "beschrijving": "Begin op een bijna vlak stuk, bouw snelheid progressief op naar licht hellend. Op licht variërendе helling brengt meer uitdaging.",
+                            "doel": "Snelheid progressief opbouwen"
+                        }
+                    ],
+                    "tips": [
+                        "Wanneer bochten vlot aaneengeschakeld worden evolueert dit naar de fijnvorm.",
+                        "Leerling durft soms alleen de heelside bocht in te zetten — oefen beide richtingen."
+                    ]
+                },
+                {
+                    "id": "bochten-3",
+                    "name": "S-bochten (fijnvorm)",
+                    "type": "oefening",
+                    "difficulty": "gemiddeld",
+                    "url": "oefening.html?id=bochten-3",
+                    "beschrijving": "In de fijnvorm worden bochten in een vloeiende beweging aaneengeschakeld. De traversée-fase inkort en verdwijnt.",
+                    "oefenvormen": [
+                        {
+                            "titel": "Globaalvorm oefenen",
+                            "beschrijving": "Schakel backside en frontside bochten aaneen met zo kort mogelijke traversée. Focus op vloeiende kantenwissel en constante snelheid.",
+                            "doel": "Vloeiend aaneenschakelen van bochten"
+                        }
+                    ],
+                    "tips": [
+                        "Bochten worden met constante snelheid uitgevoerd.",
+                        "Door het verhogen van de snelheid gaat het afglijden over naar echt glijden.",
+                        "Kantengevoel verhogen door hogere snelheid."
+                    ]
+                },
+                {
+                    "id": "bochten-4",
+                    "name": "Carven (basisbeweging)",
+                    "type": "oefening",
+                    "difficulty": "gevorderd",
+                    "url": "oefening.html?id=bochten-4",
+                    "beschrijving": "De basisbeweging is wanneer de bocht wordt ingezet met een draai-extensie en gegleden uitgestuurd. Carven is rijden op de edges zonder te slippen.",
+                    "uitleg": [
+                        {
+                            "type": "lijst",
+                            "titel": "Dynamische inzet met extensie:",
+                            "items": [
+                                "Combineert een strekking in enkels, knieën en heup met de inzet in de volgende bocht",
+                                "Door extensie wordt het board kort ontlast — vlottere inzet mogelijk",
+                                "Tijdens de stuurfase: gedoseerde inclinatie + progressieve flexie om druk te beheersen"
+                            ]
+                        },
+                        {
+                            "type": "lijst",
+                            "titel": "Techniek basisbeweging:",
+                            "items": [
+                                "Insturen: extensie (omhoog komen) + draaibeweging",
+                                "Uitsturen: progressieve flexie in enkels, knieën en heupen",
+                                "Flexie zorgt voor grote druk op de kante — geen afglijden meer"
+                            ]
+                        }
+                    ],
+                    "oefenvormen": [
+                        {
+                            "titel": "Kniewippen",
+                            "beschrijving": "Hoog-laag-hoog-laag tijdens het rijden. Verhoogt gewrichtsmobiliteit en kantengevoel. Oefening voor overgang van afglijden naar glijden.",
+                            "doel": "Gewrichtsmobiliteit en kantengevoel verbeteren"
+                        },
+                        {
+                            "titel": "Traversée als voorbereiding",
+                            "beschrijving": "Gebruik een traversée-fase om leerlingen voldoende tijd te geven de volgende bocht voor te bereiden. Hoe hoger het niveau, hoe korter de traversée.",
+                            "doel": "Ritme en timing van de basisbeweging leren"
+                        }
+                    ],
+                    "tips": [
+                        "Leun diep in de bocht en vertrouw je edges.",
+                        "Stijver board helpt bij carven.",
+                        "Bij eerste sprongen: leerlingen landen vaak op de tail — zorg voor centrale positie bij afzet."
+                    ]
+                },
+                {
+                    "id": "bochten-5",
+                    "name": "Korte bochten",
+                    "type": "oefening",
+                    "difficulty": "gevorderd",
+                    "url": "oefening.html?id=bochten-5",
+                    "beschrijving": "De stuurfase is ingekort en wordt gecompenseerd door een krachtige kanteninzet. Je boardt meer in de hellingslijn op een iets hogere snelheid.",
+                    "uitleg": [
+                        {
+                            "type": "lijst",
+                            "titel": "Aandachtspunten:",
+                            "items": [
+                                "Schouders en hoofd blijven in basishouding",
+                                "Laag blijven zitten",
+                                "Alleen met de heup voor en achter bewegen (dissociatie van boven- en onderlichaam)",
+                                "Constant ritme en constante snelheid"
+                            ]
+                        }
+                    ],
+                    "oefenvormen": [
+                        {
+                            "titel": "Lichtjes voor en achter bewegen",
+                            "beschrijving": "Op een minder steile piste het hele lichaam lichtjes voor en achter bewegen. Voorbereiding op constante kantenwissel.",
+                            "doel": "Constante kantenwissel leren"
+                        },
+                        {
+                            "titel": "Dissociatie oefening",
+                            "beschrijving": "Schouders vast houden, alleen heupen bewegen. Bewust maken van boven/onderlichaam scheiding. Door board op de kant te zetten gaat het automatisch draaien.",
+                            "doel": "Dissociatie van boven- en onderlichaam"
+                        }
+                    ],
+                    "tips": [
+                        "Anticipeer — zet al de volgende bocht in voor je gaat uitsturen.",
+                        "Door het board op de kant te zetten gaat het automatisch draaien."
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "tricks",
+            "name": "Tricks & Sprongen",
+            "type": "categorie",
+            "children": [
+                {
+                    "id": "tricks-0",
+                    "name": "Poppen",
+                    "type": "oefening",
+                    "difficulty": "beginner",
+                    "url": "oefening.html?id=tricks-0",
+                    "beschrijving": "Poppen is de basis van alle sprongen — het volledige board van de grond krijgen met beide voeten.",
+                    "uitleg": [
+                        {
+                            "type": "lijst",
+                            "titel": "Techniek:",
+                            "items": [
+                                "Ga diep door je knieën",
+                                "Duw af met je achterste voet en spring omhoog",
+                                "Land met beide voeten tegelijk en buig terug door je knieën om de landing te absorberen"
+                            ]
+                        }
+                    ],
+                    "oefenvormen": [
+                        {
+                            "titel": "Pop zonder board",
+                            "beschrijving": "Oefen eerst de afzetbeweging gewoon staand op de grond zonder board. Gevoel voor explosieve afzet opbouwen.",
+                            "doel": "Afzetgevoel ontwikkelen"
+                        },
+                        {
+                            "titel": "Pop over een lijn",
+                            "beschrijving": "Trek een lijn in de sneeuw op vlak terrein. Probeer er over te poppen. Geeft een duidelijk doel.",
+                            "doel": "Pop met doel uitvoeren"
+                        }
+                    ],
+                    "tips": [
+                        "Oefen eerst op een vlakke ondergrond.",
+                        "Zodra je het poppen onder de knie hebt, probeer kleine sprongen op een lichte helling."
+                    ]
+                },
+                {
+                    "id": "tricks-1",
+                    "name": "Tail press",
+                    "type": "oefening",
+                    "difficulty": "gemiddeld",
+                    "url": "oefening.html?id=tricks-1",
+                    "beschrijving": "De tail press is een basistrick waarbij je op het achterste deel van je board balanceert terwijl je de neus omhoog houdt.",
+                    "uitleg": [
+                        {
+                            "type": "lijst",
+                            "titel": "Techniek:",
+                            "items": [
+                                "Begin in je basishouding en shift je gewicht naar achteren — blijf in basishouding, niet indraaien met bovenlichaam",
+                                "Til de neus van je board op door je voorste voet te gebruiken als hefboom",
+                                "Balanceer op de tail van je board terwijl je de neus omhoog houdt",
+                                "Houd je voorste been gestrekt"
+                            ]
+                        }
+                    ],
+                    "oefenvormen": [
+                        {
+                            "titel": "Press op vlak terrein",
+                            "beschrijving": "Oefen de tail press eerst stilstaand op vlak terrein. Zoek het balancepunt voor je het in beweging probeert.",
+                            "doel": "Balancepunt vinden"
+                        }
+                    ],
+                    "tips": [
+                        "Oefen eerst op een vlakke ondergrond voordat je het op een helling probeert.",
+                        "Focus op het behouden van je balans en controle tijdens de press."
+                    ]
+                },
+                {
+                    "id": "tricks-2",
+                    "name": "Nose press",
+                    "type": "oefening",
+                    "difficulty": "gemiddeld",
+                    "url": "oefening.html?id=tricks-2",
+                    "beschrijving": "Nose press is het tegenovergestelde van de tail press — je balanceert op de neus van je board terwijl je de tail omhoog houdt.",
+                    "uitleg": [
+                        {
+                            "type": "lijst",
+                            "titel": "Techniek:",
+                            "items": [
+                                "Begin in je basishouding en shift je gewicht naar voren — blijf in basishouding, niet indraaien met bovenlichaam",
+                                "Til de tail op door je achterste voet te gebruiken als hefboom",
+                                "Balanceer op de nose van je board terwijl je de tail omhoog houdt",
+                                "Houd je achterste been gestrekt"
+                            ]
+                        }
+                    ],
+                    "tips": [
+                        "Oefen eerst op een vlakke ondergrond.",
+                        "Focus op het behouden van je balans."
+                    ]
+                },
+                {
+                    "id": "tricks-3",
+                    "name": "Ollie",
+                    "type": "oefening",
+                    "difficulty": "gemiddeld",
+                    "url": "oefening.html?id=tricks-3",
+                    "beschrijving": "De ollie is de basis van alle sprongen — leer van de grond komen zonder kicker.",
+                    "uitleg": [
+                        {
+                            "type": "lijst",
+                            "titel": "Techniek:",
+                            "items": [
+                                "Gewicht naar achterste voet — tail op de sneeuw drukken",
+                                "Voorste voet optrekken (nose omhoog)",
+                                "Springkracht van de tail gebruiken",
+                                "Knieën optrekken in de lucht",
+                                "Land met beide voeten tegelijk, knieën gebogen"
+                            ]
+                        }
+                    ],
+                    "oefenvormen": [
+                        {
+                            "titel": "Opbouw ollie stap per stap",
+                            "beschrijving": "Stap 1: tail press leren. Stap 2: pop leren. Stap 3: combineren tot ollie. Leerlingen vallen soms voorover — controleer of ze goed afzetten van de tail.",
+                            "doel": "Ollie stap voor stap opbouwen"
+                        },
+                        {
+                            "titel": "Ollie over een lijn",
+                            "beschrijving": "Trek een lijn in de sneeuw. Probeer er over te ollie-en. Verhoog progressief de hoogte met een sneeuwschots.",
+                            "doel": "Ollie met doel uitvoeren"
+                        }
+                    ],
+                    "tips": [
+                        "Verplaats je gewicht naar je achterste voet en spring af met je voorste.",
+                        "Trek je knieën op tijdens de sprong.",
+                        "Land met beide voeten tegelijk, knieën gebogen."
+                    ]
+                },
+                {
+                    "id": "tricks-4",
+                    "name": "Nollie",
+                    "type": "oefening",
+                    "difficulty": "gevorderd",
+                    "url": "oefening.html?id=tricks-4",
+                    "beschrijving": "De nollie is het omgekeerde van de ollie — je springt af van de neus van je board.",
+                    "tips": [
+                        "Zet druk op de neus van je board voor de afzet.",
+                        "Beheers de ollie eerst volledig voor je de nollie probeert.",
+                        "Begin langzaam — snelheid is niet nodig om de techniek te leren."
+                    ]
+                },
+                {
+                    "id": "tricks-5",
+                    "name": "Frontside 180",
+                    "type": "oefening",
+                    "difficulty": "gevorderd",
+                    "url": "oefening.html?id=tricks-5",
+                    "beschrijving": "Een halve rotatie frontside — je draait 180° en landt met je rug naar de helling. In regular positie wordt de rotatie naar links ingezet (tegenwijzerzin).",
+                    "uitleg": [
+                        {
+                            "type": "tekst",
+                            "inhoud": "Bij de frontside 180 wordt ingezet met de voorkant van het lichaam naar het dal. Je kan het dal zien tijdens de zweeffase."
+                        }
+                    ],
+                    "oefenvormen": [
+                        {
+                            "titel": "180 op vlak terrein",
+                            "beschrijving": "Oefen de 180 op vlak terrein zonder snelheid. Rotatie gevoel opbouwen voor je het op een helling probeert.",
+                            "doel": "Rotatie gevoel leren zonder snelheid"
+                        },
+                        {
+                            "titel": "Gegleden 180",
+                            "beschrijving": "Begin met een gegleden frontside 180 zonder sprong — inzet van schouderrotatie in de traverse. Dan pas met een kleine pop combineren.",
+                            "doel": "Progressieve opbouw naar gesprongen 180"
+                        }
+                    ],
+                    "tips": [
+                        "Begin met de schouderrotatie al tijdens de aanloop.",
+                        "Kijk over je schouder naar je landingspunt.",
+                        "Land op beide voeten tegelijk met gebogen knieën."
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "remediering",
+            "name": "Problemen & Oplossingen",
+            "type": "categorie",
+            "children": [
+                {
+                    "id": "remediering-1",
+                    "name": "Rug is niet recht",
+                    "type": "oefening",
+                    "difficulty": "beginner",
+                    "url": "oefening.html?id=remediering-1",
+                    "beschrijving": "Je rug staat gebogen tijdens het rijden — slechte gewichtsverdeling en minder controle.",
+                    "uitleg": [
+                        {
+                            "type": "lijst",
+                            "titel": "Oplossingen:",
+                            "items": [
+                                "Dieper door de knieën gaan",
+                                "Handen op de onderrug/poep en naar voor duwen",
+                                "Kijken in de rijrichting in plaats van naar de grond"
+                            ]
+                        }
+                    ],
+                    "oefenvormen": [
+                        {
+                            "titel": "Handen op de rug",
+                            "beschrijving": "Laat leerling rijden met handen op de rug (achter het lichaam). Dwingt een rechtere houding af.",
+                            "doel": "Rechte rug bewust maken"
+                        }
+                    ]
+                },
+                {
+                    "id": "remediering-2",
+                    "name": "Leunen op achterste voet",
+                    "type": "oefening",
+                    "difficulty": "beginner",
+                    "url": "oefening.html?id=remediering-2",
+                    "datum": "2026-03-23",
+                    "beschrijving": "Je gewicht zit te ver naar achter waardoor je controle verliest. Vaak een defensieve reactie bij beginners die bang zijn voor de snelheid.",
+                    "uitleg": [
+                        {
+                            "type": "lijst",
+                            "titel": "Oplossingen:",
+                            "items": [
+                                "Sneeuwbal nemen en voor het board laten vallen",
+                                "Tail af en toe opheffen",
+                                "Voorste hand op voorste knie houden"
+                            ]
+                        }
+                    ],
+                    "oefenvormen": [
+                        {
+                            "titel": "Voorste hand op knie",
+                            "beschrijving": "Laat leerling rijden met voorste hand op de voorste knie. Dwingt gewicht naar voor en centraal.",
+                            "doel": "Gewicht naar de voorste voet brengen"
+                        }
+                    ]
+                },
+                {
+                    "id": "remediering-3",
+                    "name": "Schouders scheef",
+                    "type": "oefening",
+                    "difficulty": "beginner",
+                    "url": "oefening.html?id=remediering-3",
+                    "beschrijving": "Schouders staan niet evenwijdig met het snowboard of de achterste arm komt naar voor.",
+                    "datum": "2026-03-24",
+                    "uitleg": [
+                        {
+                            "type": "lijst",
+                            "titel": "Oplossingen:",
+                            "items": [
+                                "Handen in de zij houden of de jas zijdelings vasthouden",
+                                "Teenkant bocht: voorste hand op buik, achterste hand op rug",
+                                "Hielkant bocht: omgekeerde"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": "remediering-4",
+                    "name": "Benen niet gebogen",
+                    "type": "oefening",
+                    "difficulty": "beginner",
+                    "url": "oefening.html?id=remediering-4",
+                    "beschrijving": "Knieën zijn te strak — geen schokdemping, minder evenwicht en minder gewrichtsmobiliteit.",
+                    "uitleg": [
+                        {
+                            "type": "lijst",
+                            "titel": "Oplossingen:",
+                            "items": [
+                                "Handen aan de binnenkant van knieën plaatsen",
+                                "Kniewippen, springen en ollie oefeningen",
+                                "Freestyle oefenvormen stimuleren gewrichtsmobiliteit"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": "remediering-5",
+                    "name": "Heupen ingedraaid",
+                    "type": "oefening",
+                    "difficulty": "beginner",
+                    "url": "oefening.html?id=remediering-5",
+                    "beschrijving": "Heupen staan ingedraaid en niet gelijk met het board. Dit beperkt later de technische evolutie.",
+                    "houding": "oefenvorm1",
+                    "uitleg": [
+                        {
+                            "type": "lijst",
+                            "titel": "Oplossingen:",
+                            "items": [
+                                "Handen op de heupen zodat je zelf ziet dat ze niet gelijk staan met het board",
+                                "Knieën goed naar buiten duwen"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": "remediering-6",
+                    "name": "Doordraaien in de bochten",
+                    "type": "oefening",
+                    "difficulty": "gemiddeld",
+                    "url": "oefening.html?id=remediering-6",
+                    "beschrijving": "Je draait te ver door in de bochten waardoor je de controle verliest — overrotatie in de uitstuurfase.",
+                    "uitleg": [
+                        {
+                            "type": "lijst",
+                            "titel": "Oplossingen:",
+                            "items": [
+                                "Gewicht op beide benen plaatsen tijdens het uitsturen",
+                                "Kijken waarnaar je wil gaan",
+                                "Schouders parallel houden met het board"
+                            ]
+                        }
+                    ],
+                    "oefenvormen": [
+                        {
+                            "titel": "Jas vasthouden",
+                            "beschrijving": "Laat leerling de jas zijdelings vasthouden met beide handen tijdens het rijden. Houdt schouders parallel met het board.",
+                            "doel": "Overrotatie van schouders vermijden"
+                        }
+                    ]
+                },
+                {
+                    "id": "remediering-7",
+                    "name": "Kantengrip problemen (happertje)",
+                    "type": "oefening",
+                    "difficulty": "beginner",
+                    "url": "oefening.html?id=remediering-7",
+                    "beschrijving": "Board 'happert' bij het glijden in de hellingslijn — de kanten grijpen ongewenst in de sneeuw.",
+                    "uitleg": [
+                        {
+                            "type": "lijst",
+                            "titel": "Oorzaken en oplossingen:",
+                            "items": [
+                                "Oorzaak: board staat niet vlak genoeg op de sneeuw",
+                                "Oplossing: board bewust vlak houden bij glijden in hellingslijn",
+                                "Controleer of de bindingen niet te straf zijn ingesteld",
+                                "Begin met zachte sneeuw — geeft meer vergevingsgezinde fouten"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": "remediering-8",
+                    "name": "Problemen bij de lift",
+                    "type": "oefening",
+                    "difficulty": "beginner",
+                    "url": "oefening.html?id=remediering-8",
+                    "beschrijving": "Leerlingen vallen bij het nemen of verlaten van de lift.",
+                    "uitleg": [
+                        {
+                            "type": "lijst",
+                            "titel": "Sleeplift — veelgemaakte fouten:",
+                            "items": [
+                                "Voorover vallen bij het nemen: achterste voet niet achter het board geplaatst",
+                                "Board houdt richting niet: lengte as niet in de glijrichting",
+                                "Oplossing: oefen het nemen van de lift op vlak terrein"
+                            ]
+                        },
+                        {
+                            "type": "lijst",
+                            "titel": "Zetellift — bij het afstappen:",
+                            "items": [
+                                "Board in de lengte zetten en afduwen",
+                                "Achterste voet tegen achterste binding plaatsen",
+                                "Basishouding aannemen en wegglijden"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

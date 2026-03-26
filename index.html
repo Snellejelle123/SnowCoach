@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="webmention" href="http://localhost:3000/webmention" />
+    <title>SnowCoach</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <header>
+        <h1><a href="index.html">Snow<span>Coach</span></a></h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="./html/stappenplan.html">Stappenplan</a>
+            <a href="./html/oefeningen.html">Oefeningen</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="top-section">
+            <h1>Leer snowboarden <span>stap voor stap</span></h1>
+            <p>Een digitaal platform voor snowboarders en coaches.</p>
+            <a href="./html/stappenplan.html" class="button">Start nu</a>
+        </section>
+
+        <div class="container">
+            <div class="disclaimer ">
+                <p>
+                    ⚠️ Disclaimer: het gaat altijd beter gaan als je leert van een echt persoon dat weet wat hij doet.
+                </p>
+            </div>
+            <section class="info">
+                <h1>Wat is SnowCoach?</h1>
+                <img src="./images/snowboard-tricks-definitions.jpg" alt="Snowboard tricks definitions"
+                    class="info-image">
+                <p>
+                    SnowCoach helpt je om snowboard technieken te leren via oefeningen,
+                    visuele animaties maar is meer bedoeld voor instructoren die effe vast zitten met oefeningen en
+                    inspiratie nodig hebben.
+                </p>
+                <a href="./rss" class="button">Abonneer op RSS feed</a>
+            </section>
+
+        </div>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 SnowCoach. Alle rechten voorbehouden.</p>
+        <link rel="alternate" type="application/rss+xml" href="./rss.xml">
+    </footer>
+
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://cdn.jsdelivr.net/npm/three@0.163.0/build/three.module.js",
+            "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.163.0/examples/jsm/"
+        }
+    }
+    </script>
+
+
+
+    <script typer="module" src="./javascript/rss.js"></script>
+    <script type="module" src="./javascript/decoratie.js"></script>
+
+</body>
+
+
+</html>

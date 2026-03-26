@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Oefeningen - SnowCoach</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=DM+Serif+Display&display=swap"
+        rel="stylesheet">
+    <link rel="webmention" href="http://localhost:3000/webmention" />
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/Oefeningen.css">
+</head>
+
+<body>
+    <header>
+        <h1><a href="../index.html">Snow<span>Coach</span></a></h1>
+        <nav>
+            <a href="../index.html">Home</a>
+            <a href="./stappenplan.html">Stappenplan</a>
+            <a href="./oefeningen.html">Oefeningen</a>
+        </nav>
+    </header>
+
+    <main>
+
+        <div class="top-section">
+            <h1>Oefeningen</h1>
+            <p>Blader door onze verzameling oefeningen en vind de perfecte match voor jouw niveau.</p>
+        </div>
+
+        <div class="filter-bar">
+            <input type="search" id="zoek" placeholder="Zoek oefening..." />
+
+            <select id="categorie-select">
+                <option value="alle">Alle categorieën</option>
+            </select>
+
+            <div class="filter-groep">
+                <button class="filter-btn active" data-diff="alle">Alle</button>
+                <button class="filter-btn" data-diff="beginner">Beginner</button>
+                <button class="filter-btn" data-diff="gemiddeld">Gemiddeld</button>
+                <button class="filter-btn" data-diff="gevorderd">Gevorderd</button>
+            </div>
+
+            <span class="resultaat-label" id="resultaat-label"></span>
+        </div>
+
+        <div class="container">
+            <oefening-lijst></oefening-lijst>
+        </div>
+
+    </main>
+    <footer>
+        <p>&copy; 2026 SnowCoach. Alle rechten voorbehouden.</p>
+    </footer>
+</body>
+<script type="module" src="../javascript/oefeningen.js"></script>
+
+</html>

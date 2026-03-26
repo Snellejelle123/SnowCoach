@@ -1,0 +1,63 @@
+[
+    {
+        "name": "Basishouding",
+        "beschrijving": "Leer de correcte snowboardhouding",
+        "url": "/oefeningen/basishouding",
+        "type": "oefeningen",
+        "datum": "2026-03-24"
+    },
+    {
+        "name": "Carven",
+        "beschrijving": "Snijd bochten zoals een pro",
+        "url": "/oefeningen/carven",
+        "type": "tips",
+        "datum": "2026-03-23"
+    },
+    {
+        "id": "remediering-2",
+        "name": "Leunen op achterste voet",
+        "type": "oefening",
+        "difficulty": "beginner",
+        "url": "oefening.html?id=remediering-2",
+        "datum": "2026-03-23",
+        "beschrijving": "Je gewicht zit te ver naar achter waardoor je controle verliest. Vaak een defensieve reactie bij beginners die bang zijn voor de snelheid.",
+        "uitleg": [
+            {
+                "type": "lijst",
+                "titel": "Oplossingen:",
+                "items": [
+                    "Sneeuwbal nemen en voor het board laten vallen",
+                    "Tail af en toe opheffen",
+                    "Voorste hand op voorste knie houden"
+                ]
+            }
+        ],
+        "oefenvormen": [
+            {
+                "titel": "Voorste hand op knie",
+                "beschrijving": "Laat leerling rijden met voorste hand op de voorste knie. Dwingt gewicht naar voor en centraal.",
+                "doel": "Gewicht naar de voorste voet brengen"
+            }
+        ]
+    },
+    {
+        "id": "remediering-3",
+        "name": "Schouders scheef",
+        "type": "oefening",
+        "difficulty": "beginner",
+        "url": "oefening.html?id=remediering-3",
+        "beschrijving": "Schouders staan niet evenwijdig met het snowboard of de achterste arm komt naar voor.",
+        "datum": "2026-03-24",
+        "uitleg": [
+            {
+                "type": "lijst",
+                "titel": "Oplossingen:",
+                "items": [
+                    "Handen in de zij houden of de jas zijdelings vasthouden",
+                    "Teenkant bocht: voorste hand op buik, achterste hand op rug",
+                    "Hielkant bocht: omgekeerde"
+                ]
+            }
+        ]
+    }
+]

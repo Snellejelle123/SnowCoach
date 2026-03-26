@@ -1,0 +1,77 @@
+/* Boom */
+.tree-wrap {
+    padding: 2rem;
+    overflow-x: auto;
+}
+
+.tree-hint {
+    text-align: center;
+    font-size: 12px;
+    color: var(--text-faint);
+    margin-bottom: 1rem;
+}
+
+/* BASE */
+.node circle {
+    stroke-width: 1.5px;
+    cursor: pointer;
+    fill: var(--blue-200);
+}
+
+.node text {
+    font-family: var(--font-sans);
+    font-size: 13px;
+    fill: var(--blue-900);
+    cursor: pointer;
+    user-select: none;
+}
+
+.node text:hover {
+    fill: var(--blue-600);
+}
+
+/* Node types */
+.node-root circle,
+.node-categorie circle {
+    fill: var(--blue-600);
+}
+
+.node-root circle {
+    stroke: var(--blue-400);
+}
+
+.node-root text {
+    font-weight: 500;
+
+}
+
+.node-categorie circle {
+    stroke: var(--blue-800);
+}
+
+.node-categorie text {
+    font-weight: 500;
+}
+
+/* Difficulty levels */
+.node-beginner circle {
+    fill: var(--blue-50);
+    stroke: var(--blue-400);
+}
+
+.node-gemiddeld circle {
+    fill: var(--blue-200);
+    stroke: var(--blue-600);
+}
+
+.node-gevorderd circle {
+    fill: var(--blue-400);
+    stroke: var(--blue-800);
+}
+
+/* Verbindingslijnen — fill:none is verplicht anders zwarte driehoeken */
+path.link {
+    fill: none;
+    stroke: var(--blue-100);
+    stroke-width: 1.5px;
+}
