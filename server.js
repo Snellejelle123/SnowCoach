@@ -29,7 +29,7 @@ app.get("/rss.xml", async (req, res) => {
         .map(item => `
         <item>
             <title>${item.name}</title>
-            <link>${BASE_URL}${item.url}</link>
+            <link>${BASE_URL}/html${item.url}</link>
             <description><![CDATA[${item.beschrijving}]]></description>
             <category>${item.type}</category>
             <pubDate>${new Date(item.datum).toUTCString()}</pubDate>
@@ -42,7 +42,7 @@ app.get("/rss.xml", async (req, res) => {
 <rss version="2.0">
     <channel>
         <title>SnowCoach</title>
-        <link>${BASE_URL}/html</link>
+        <link>${BASE_URL}</link>
         <description>Nieuwe oefeningen en tips</description>
         <language>nl</language>
         <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
