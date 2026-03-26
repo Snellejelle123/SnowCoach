@@ -33,7 +33,7 @@ app.get("/rss.xml", async (req, res) => {
             <description><![CDATA[${item.beschrijving}]]></description>
             <category>${item.type}</category>
             <pubDate>${new Date(item.datum).toUTCString()}</pubDate>
-            <guid isPermaLink="true">${BASE_URL}${item.url}</guid>
+            <guid isPermaLink="true">${BASE_URL}/html${item.url}</guid>
         </item>`)
         .join("");
 
