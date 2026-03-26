@@ -42,7 +42,7 @@ app.get("/rss.xml", async (req, res) => {
 <rss version="2.0">
     <channel>
         <title>SnowCoach</title>
-        <link>${BASE_URL}</link>
+        <link>${BASE_URL}/html</link>
         <description>Nieuwe oefeningen en tips</description>
         <language>nl</language>
         <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
