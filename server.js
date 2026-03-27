@@ -94,3 +94,36 @@ function extractItems(node, categorie = null) {
 
     return result;
 }
+import { readFile, writeFile } from "fs/promises";
+
+app.use(express.urlencoded({ extended: true }));
+
+app.post("/webmention", async (req, res) => {
+    const { source, target } = req.body;
+
+    if (!source || !target) {
+        return res.status(400).sent("source en target zijn verlicht !!!");
+    }
+
+    if (!target.startsWith(BASE_URL)) {
+        return res.status(400).send("Target is niet van deze site");
+    }
+    let mentions = [];
+    try {
+        const raw = await readFile(".data/webmention.json", "utf-8")
+        mentions = JSON.parse(raw)
+    } catch {
+
+    }
+    mentions.push({
+        id: Date.now(),
+        source,
+        target,
+        site: new URL(source).hostname,      // naam verwijzende site
+        timestamp: new Date().toISOString(), // tijdstip ontvangst
+        goedgekeurd: false                   // wacht op moderatie
+    });
+    await writeFile("./data/webmentions.json", JSON.stringify(mentions, null, 2));
+    res.status(202).send("Webmention ontvangen");
+});
+
