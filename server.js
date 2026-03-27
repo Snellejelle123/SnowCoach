@@ -98,32 +98,26 @@ function extractItems(node, categorie = null) {
 
 app.use(express.urlencoded({ extended: true }));
 
-app.post("/webmention", async (req, res) => {
-    const { source, target } = req.body;
-
-    if (!source || !target) {
-        return res.status(400).sent("source en target zijn verlicht !!!");
-    }
-
-    if (!target.startsWith(BASE_URL)) {
-        return res.status(400).send("Target is niet van deze site");
-    }
-    let mentions = [];
+app.get("/api/webmentions", async (req, res) => {
     try {
-        const raw = await readFile(".data/webmention.json", "utf-8")
-        mentions = JSON.parse(raw)
+        const raw = await readFile("./data/webmentions.json", "utf-8");
+        res.json(JSON.parse(raw));
     } catch {
-
+        res.json([]);
     }
     mentions.push({
         id: Date.now(),
         source,
         target,
-        site: new URL(source).hostname,      // naam verwijzende site
-        timestamp: new Date().toISOString(), // tijdstip ontvangst
-        goedgekeurd: false                   // wacht op moderatie
+        site: new URL(source).hostname,
+        timestamp: new Date().toISOString(),
+        goedgekeurd: false
     });
+
     await writeFile("./data/webmentions.json", JSON.stringify(mentions, null, 2));
+
     res.status(202).send("Webmention ontvangen");
 });
+
+
 
