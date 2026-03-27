@@ -1,6 +1,7 @@
-const width = window.innerWidth;
-const height = 600;
-const margin = { left: 100, right: 300 };
+
+const width = Math.max(window.innerWidth, 600);
+const height = Math.max(window.innerHeight * 0.85, 500);
+const margin = { left: 120, right: 200 };
 
 const svg = d3.select("#tree-svg")
     .attr("viewBox", `0 0 ${width} ${height}`)
