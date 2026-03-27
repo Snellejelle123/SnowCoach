@@ -96,6 +96,7 @@
 
         loadMentions();
         async function test() {
+            const BASE_URL = "https://snowcoach-production.up.railway.app";
             const res = await fetch('/webmention', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
