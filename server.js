@@ -1,5 +1,5 @@
 import express from "express";
-import { readFile } from "fs/promises";
+import { readFile, writeFile } from "fs/promises";
 
 const app = express();
 const PORT = 3000;
@@ -94,7 +94,7 @@ function extractItems(node, categorie = null) {
 
     return result;
 }
-import { readFile, writeFile } from "fs/promises";
+
 
 app.use(express.urlencoded({ extended: true }));
 
