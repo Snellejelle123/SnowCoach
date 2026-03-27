@@ -21,8 +21,8 @@
         <h1><a href="../index.html">Snow<span>Coach</span></a></h1>
         <nav>
             <a href="../index.html">Home</a>
-            <a href="./html/stappenplan.html">Stappenplan</a>
-            <a href="./html/oefeningen.html">Oefeningen</a>
+            <a href="./stappenplan.html">Stappenplan</a>
+            <a href="./oefeningen.html">Oefeningen</a>
 
         </nav>
     </header>
@@ -45,29 +45,42 @@
             </thead>
             <tbody id="tabel-body"></tbody>
         </table>
+        <button onclick="test()">Test webmention</button>
     </div>
 
     <script>
         async function loadMentions() {
-            const res = await fetch('/api/webmentions');
-            const mentions = await res.json();
+            try {
+                const res = await fetch('/api/webmentions');
 
-            const rows = mentions.map(m => `
-        <tr>
-            <td>${m.site}</td>
-            <td><a href="${m.source}" target="_blank">${m.source}</a></td>
-            <td><a href="${m.target}" target="_blank">${m.target}</a></td>
-            <td>${new Date(m.timestamp).toLocaleDateString("nl-BE")}</td>
-            <td>${m.goedgekeurd ? "✅" : "⏳"}</td>
-            <td>
-                ${!m.goedgekeurd ? `<button onclick="keur(${m.id})">Goedkeuren</button>` : ""}
-                <button onclick="verwijder(${m.id})">Verwijderen</button>
-            </td>
-        </tr>
-    `).join("");
+                if (!res.ok) {
+                    throw new Error("API error: " + res.status);
+                }
 
-            document.getElementById("tabel-body").innerHTML =
-                rows || "<tr><td colspan='6'>Geen webmentions</td></tr>";
+                const mentions = await res.json();
+
+                const rows = mentions.map(m => `
+            <tr>
+                <td>${m.site}</td>
+                <td><a href="${m.source}" target="_blank">${m.source}</a></td>
+                <td><a href="${m.target}" target="_blank">${m.target}</a></td>
+                <td>${new Date(m.timestamp).toLocaleDateString("nl-BE")}</td>
+                <td>${m.goedgekeurd ? "✅" : "⏳"}</td>
+                <td>
+                    ${!m.goedgekeurd ? `<button onclick="keur(${m.id})">Goedkeuren</button>` : ""}
+                    <button onclick="verwijder(${m.id})">Verwijderen</button>
+                </td>
+            </tr>
+        `).join("");
+
+                document.getElementById("tabel-body").innerHTML =
+                    rows || "<tr><td colspan='6'>Geen webmentions</td></tr>";
+
+            } catch (err) {
+                console.error(err);
+                document.getElementById("tabel-body").innerHTML =
+                    "<tr><td colspan='6'>Fout bij laden</td></tr>";
+            }
         }
 
         async function keur(id) {
@@ -82,6 +95,15 @@
         }
 
         loadMentions();
+        async function test() {
+            const res = await fetch('/webmention', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: `source=https://example.com/test&target=${BASE_URL}/html/oefening.html?id=remediering-3`
+            });
+            console.log(await res.text());
+            loadMentions();
+        }
     </script>
 
 </body>

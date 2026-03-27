@@ -100,24 +100,14 @@ app.use(express.urlencoded({ extended: true }));
 
 app.get("/api/webmentions", async (req, res) => {
     try {
-        const raw = await readFile("./data/webmentions.json", "utf-8");
+        const raw = await readFile("../data/webmentions.json", "utf-8");
         res.json(JSON.parse(raw));
     } catch {
         res.json([]);
     }
-    mentions.push({
-        id: Date.now(),
-        source,
-        target,
-        site: new URL(source).hostname,
-        timestamp: new Date().toISOString(),
-        goedgekeurd: false
-    });
-
-    await writeFile("./data/webmentions.json", JSON.stringify(mentions, null, 2));
-
-    res.status(202).send("Webmention ontvangen");
 });
+
+
 
 
 
