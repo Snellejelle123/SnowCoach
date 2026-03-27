@@ -89,6 +89,11 @@ nav a:hover {
     background: var(--blue-800);
 }
 
+.info img {
+    width: 100%;
+    height: auto;
+}
+
 /* top section */
 .top-section {
     text-align: center;

@@ -45,7 +45,7 @@
             </thead>
             <tbody id="tabel-body"></tbody>
         </table>
-        <button onclick="test()">Test webmention</button>
+
     </div>
 
     <script>
@@ -95,16 +95,7 @@
         }
 
         loadMentions();
-        async function test() {
-            const BASE_URL = "https://snowcoach-production.up.railway.app";
-            const res = await fetch('/webmention', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                body: `source=https://example.com/test&target=${BASE_URL}/html/oefening.html?id=remediering-3`
-            });
-            console.log(await res.text());
-            loadMentions();
-        }
+
     </script>
 
 </body>

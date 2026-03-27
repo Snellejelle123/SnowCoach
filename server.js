@@ -161,18 +161,3 @@ function extractItems(node, categorie = null) {
 
     return result;
 }
-app.post('/webmention', async (req, res) => {
-    const { source, target } = req.body;
-
-    if (!source || !target) {
-        return res.status(400).send('source en target zijn verplicht');
-    }
-
-    // Sla op in je database
-    await db.run(
-        'INSERT INTO webmentions (source, target, timestamp, goedgekeurd) VALUES (?, ?, ?, 0)',
-        [source, target, new Date().toISOString()]
-    );
-
-    res.status(202).send('Webmention ontvangen');
-});
