@@ -1,17 +1,20 @@
 import express from "express";
 import { readFile, writeFile } from "fs/promises";
+import path from "path";
 
 const app = express();
 const PORT = 3000;
 const BASE_URL = process.env.BASE_URL || `http://localhost:${PORT}`;
 
 app.use(express.static("."));
+app.use(express.urlencoded({ extended: true })); // ✅ bovenaan
+app.use(express.json());                         // ✅ voor JSON body
 
 /* =========================
    RSS ROUTE
 ========================= */
 app.get("/rss.xml", async (req, res) => {
-    const categorieFilter = req.query.categorie; // ✅ uit de URL halen
+    const categorieFilter = req.query.categorie;
 
     let data;
     try {
@@ -23,7 +26,7 @@ app.get("/rss.xml", async (req, res) => {
         return res.status(500).send("Feed tijdelijk niet beschikbaar");
     }
 
-    const gefilterd = categorieFilter // ✅ binnen de route
+    const gefilterd = categorieFilter
         ? data.filter(item => item.categorie === categorieFilter)
         : data;
 
@@ -56,12 +59,76 @@ app.get("/rss.xml", async (req, res) => {
 });
 
 /* =========================
-   INFO PAGINA
+   RSS INFO PAGINA
 ========================= */
-import path from "path";
-
 app.get("/rss", (req, res) => {
     res.sendFile(path.resolve("html/rss.html"));
+});
+
+/* =========================
+   WEBMENTION ONTVANGEN
+========================= */
+app.post("/webmention", async (req, res) => {
+    const source = req.body.source;
+    const target = req.body.target;
+
+    if (!source || !target) {
+        return res.status(400).send("source en target zijn verplicht");
+    }
+
+    if (!target.startsWith(BASE_URL)) {
+        return res.status(400).send("Target is niet van deze site");
+    }
+
+    let mentions = [];
+    try {
+        const raw = await readFile("./data/webmentions.json", "utf-8");
+        mentions = JSON.parse(raw);
+    } catch {
+        // bestand bestaat nog niet
+    }
+
+    mentions.push({
+        id: Date.now(),
+        source,
+        target,
+        site: new URL(source).hostname,
+        timestamp: new Date().toISOString(),
+        goedgekeurd: false
+    });
+
+    await writeFile("./data/webmentions.json", JSON.stringify(mentions, null, 2));
+    res.status(202).send("Webmention ontvangen");
+});
+
+/* =========================
+   WEBMENTION API
+========================= */
+app.get("/api/webmentions", async (req, res) => {
+    try {
+        const raw = await readFile("./data/webmentions.json", "utf-8"); // ✅ correct pad
+        res.json(JSON.parse(raw));
+    } catch {
+        res.json([]);
+    }
+});
+
+app.post("/admin/webmentions/:id/goedkeuren", async (req, res) => {
+    const raw = await readFile("./data/webmentions.json", "utf-8");
+    const mentions = JSON.parse(raw);
+    const mention = mentions.find(m => m.id === parseInt(req.params.id));
+    if (!mention) return res.status(404).send("Niet gevonden");
+    mention.goedgekeurd = true;
+    await writeFile("./data/webmentions.json", JSON.stringify(mentions, null, 2));
+    res.json({ bericht: "Goedgekeurd" });
+});
+
+app.delete("/admin/webmentions/:id", async (req, res) => {
+    const raw = await readFile("./data/webmentions.json", "utf-8");
+    let mentions = JSON.parse(raw);
+    mentions = mentions.filter(m => m.id !== parseInt(req.params.id));
+    await writeFile("./data/webmentions.json", JSON.stringify(mentions, null, 2));
+    res.json({ bericht: "Verwijderd" });
 });
 
 /* =========================
@@ -94,20 +161,18 @@ function extractItems(node, categorie = null) {
 
     return result;
 }
+app.post('/webmention', async (req, res) => {
+    const { source, target } = req.body;
 
-
-app.use(express.urlencoded({ extended: true }));
-
-app.get("/api/webmentions", async (req, res) => {
-    try {
-        const raw = await readFile("../data/webmentions.json", "utf-8");
-        res.json(JSON.parse(raw));
-    } catch {
-        res.json([]);
+    if (!source || !target) {
+        return res.status(400).send('source en target zijn verplicht');
     }
+
+    // Sla op in je database
+    await db.run(
+        'INSERT INTO webmentions (source, target, timestamp, goedgekeurd) VALUES (?, ?, ?, 0)',
+        [source, target, new Date().toISOString()]
+    );
+
+    res.status(202).send('Webmention ontvangen');
 });
-
-
-
-
-
