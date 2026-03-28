@@ -189,11 +189,7 @@ async function stuurWebmentionsAutomatisch() {
 
     // Zoek externe URLs in beschrijvingen
     const urlRegex = /https?:\/\/[^\s"<>]+/g;
-    for (const item of data) {
-        console.log("Item beschrijving:", item.beschrijving); // ← voeg dit toe
-        const gevondenUrls = item.beschrijving?.match(urlRegex) || [];
-        console.log("Gevonden URLs:", gevondenUrls); // ← en dit
-    }
+
 
     for (const item of data) {
         const gevondenUrls = item.beschrijving?.match(urlRegex) || [];
