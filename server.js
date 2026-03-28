@@ -200,7 +200,7 @@ async function stuurWebmentionsAutomatisch() {
         const externeUrls = gevondenUrls.filter(url => !url.startsWith(BASE_URL));
 
         for (const targetUrl of externeUrls) {
-            const source = `${BASE_URL}/html${item.url}`;
+            const source = `${BASE_URL}/html/webmention-test.html`;
             const sleutel = `${source}::${targetUrl}`;
 
             if (alVerstuurd.includes(sleutel)) {
