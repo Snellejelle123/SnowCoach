@@ -1,6 +1,7 @@
 import express from "express";
 import { readFile, writeFile } from "fs/promises";
 import path from "path";
+import { watch } from "fs";
 
 const app = express();
 const PORT = 3000;
@@ -136,6 +137,7 @@ app.delete("/admin/webmentions/:id", async (req, res) => {
 ========================= */
 app.listen(PORT, () => {
     console.log(`Server draait op ${BASE_URL}`);
+    stuurWebmentionsAutomatisch();
 });
 
 function extractItems(node, categorie = null) {
@@ -161,3 +163,82 @@ function extractItems(node, categorie = null) {
 
     return result;
 }
+/* =========================
+   WEBMENTIONS AUTO-VERSTUREN BIJ SERVERSTART
+========================= */
+async function stuurWebmentionsAutomatisch() {
+    console.log("🔍 Webmentions scannen...");
+
+    let data;
+    try {
+        const raw = await readFile("./data/stappenplanV2.json", "utf-8");
+        data = extractItems(JSON.parse(raw));
+    } catch (err) {
+        console.error("Fout bij inlezen JSON:", err);
+        return;
+    }
+
+    // Laad al verstuurde URLs
+    let alVerstuurd = [];
+    try {
+        const raw = await readFile("./data/webmentions-sent.json", "utf-8");
+        alVerstuurd = JSON.parse(raw);
+    } catch {
+        // bestand bestaat nog niet
+    }
+
+    // Zoek externe URLs in beschrijvingen
+    const urlRegex = /https?:\/\/[^\s"<>]+/g;
+
+    for (const item of data) {
+        const gevondenUrls = item.beschrijving?.match(urlRegex) || [];
+        const externeUrls = gevondenUrls.filter(url => !url.startsWith(BASE_URL));
+
+        for (const targetUrl of externeUrls) {
+            const source = `${BASE_URL}/html${item.url}`;
+            const sleutel = `${source}::${targetUrl}`;
+
+            if (alVerstuurd.includes(sleutel)) {
+                console.log(`⏭ Al verstuurd: ${targetUrl}`);
+                continue;
+            }
+
+            try {
+                // Zoek webmention endpoint op externe pagina
+                const pageRes = await fetch(targetUrl);
+                const html = await pageRes.text();
+
+                const match =
+                    html.match(/<link[^>]+rel=["']webmention["'][^>]+href=["']([^"']+)["']/i) ||
+                    html.match(/<link[^>]+href=["']([^"']+)["'][^>]+rel=["']webmention["']/i);
+
+                if (!match) {
+                    console.log(`⚠ Geen webmention endpoint op: ${targetUrl}`);
+                    continue;
+                }
+
+                const endpoint = new URL(match[1], targetUrl).href;
+
+                const wmRes = await fetch(endpoint, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                    body: `source=${encodeURIComponent(source)}&target=${encodeURIComponent(targetUrl)}`
+                });
+
+                console.log(`✅ Webmention verstuurd naar ${endpoint} — status: ${wmRes.status}`);
+
+                alVerstuurd.push(sleutel);
+                await writeFile("./data/webmentions-sent.json", JSON.stringify(alVerstuurd, null, 2));
+
+            } catch (err) {
+                console.error(`❌ Fout bij versturen naar ${targetUrl}:`, err.message);
+            }
+        }
+    }
+
+    console.log("✅ Webmention scan klaar");
+}
+watch("./data/stappenplanV2.json", () => {
+    console.log("📄 JSON gewijzigd, opnieuw scannen...");
+    stuurWebmentionsAutomatisch();
+});

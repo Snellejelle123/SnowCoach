@@ -4,7 +4,8 @@
 
 }
 
-a.kaart {
+a.kaart,
+.kaart {
     color: var(--blue-900);
     background: var(--white);
     border: 1px solid var(--blue-100);
