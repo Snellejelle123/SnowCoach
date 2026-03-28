@@ -141,6 +141,7 @@ nav a:hover {
     width: 88%;
     max-width: 960px;
     margin: 0 auto;
+    margin-top: 2rem;
 }
 
 section {
