@@ -1,6 +1,9 @@
 # SnowCoach
 
-Digitaal leerplatform voor snowboarders en coaches. De site brengt alle informatie over snowboarden samen op één plek. Via een stappenplan kunnen instructeurs oefeningen vinden en kunnen leerlingen zelfstandig oefenen.
+SnowCoach is een webapplicatie die fungeert als digitaal leerplatform voor zowel snowboardleraren als leerlingen. De website brengt alle informatie over snowboarden samen op één centrale plek. Via een logisch gestructureerd stappenplan kan een snowboardinstructeur gevarieerde oefeningen vinden, terwijl een leerling deze zelfstandig kan inoefenen.
+
+Per leerstap worden duidelijke, specifieke oefeningen en tips gegeven, aangevuld met illustraties en een geanimeerde 3D-demo. De applicatie bevat ook een functie voor foutgerichte feedback waarbij de gebruiker persoonlijke begeleiding krijgt op basis van veelgemaakte fouten.
+
 
 ## Starten
 
