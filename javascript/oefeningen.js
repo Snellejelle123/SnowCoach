@@ -36,7 +36,7 @@ class OefeningLijst extends HTMLElement {
         return lijst;
     }
 
-    // Vul de categorie dropdown in de HTML (niet in de Shadow DOM)
+    //selectie lijst dit is buiten de shadowdom
     vulCategorieDropdown() {
         const select = document.getElementById("categorie-select");
         const categorieen = [...new Set(this.oefeningen.map(o => o.categorie))];

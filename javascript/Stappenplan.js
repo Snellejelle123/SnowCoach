@@ -2,7 +2,7 @@
 const width = Math.max(window.innerWidth, 600);
 const height = Math.max(window.innerHeight * 0.85, 500);
 const margin = { left: 120, right: 200 };
-
+// groote instellen voor de svg 
 const svg = d3.select("#tree-svg")
     .attr("viewBox", `0 0 ${width} ${height}`)
     .attr("preserveAspectRatio", "xMidYMid meet")
@@ -13,7 +13,7 @@ const g = svg.append("g")
     .attr("transform", `translate(${margin.left}, ${height / 2})`);
 
 let root;
-
+// data oproepen 
 d3.json("../data/stappenplanV2.json").then(data => {
     root = d3.hierarchy(data);
     if (root.children) {

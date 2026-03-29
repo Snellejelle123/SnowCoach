@@ -13,6 +13,7 @@
         rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/webmention.css">
+    <link rel="stylesheet" href="../css/rss.css">
     <link rel="icon" type="image/png" href="./images/logo.png">
 </head>
 
@@ -97,7 +98,44 @@
         loadMentions();
 
     </script>
+    <div class="container">
+        <h2>Webmention endpoint</h2>
+        <p>Externe platformen kunnen een Webmention sturen naar dit platform via onderstaand endpoint.</p>
 
+        <div class="grid">
+            <div class="kaart">
+                <h3>Endpoint URL</h3>
+                <p>https://snowcoach-production.up.railway.app/webmention</p>
+            </div>
+            <div class="kaart">
+                <h3>Methode</h3>
+                <p>POST met <code>source</code> en <code>target</code> als form parameters</p>
+            </div>
+            <div class="kaart">
+                <h3>Link tag</h3>
+                <p>Voeg dit toe aan je &lt;head&gt; zodat clients het endpoint automatisch detecteren:</p>
+                <code>&lt;link rel="webmention" href="https://snowcoach-production.up.railway.app/webmention" /&gt;</code>
+            </div>
+        </div>
+        <div class="kaart" style="margin-top: 1rem;">
+            <h3>Voorbeeld request</h3>
+            <pre><code>POST /webmention
+Content-Type: application/x-www-form-urlencoded
+
+source=https://jouwsite.com/pagina
+target=https://snowcoach-production.up.railway.app/</code></pre>
+        </div>
+    </div>
+    <script type="module" src="../javascript/decoratie.js"></script>
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://cdn.jsdelivr.net/npm/three@0.163.0/build/three.module.js",
+            "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.163.0/examples/jsm/"
+        }
+    }
+    </script>
+    <script type="module" src="../javascript/decoratie.js"></script>
 </body>
 
 </html>

@@ -8,12 +8,13 @@ scene.background = new THREE.Color(0xf0f4f8);
 
 const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 100);
 camera.position.set(0, 1.5, 4);
-
+// eerst render settings & aanpassen aan de shadowdom waar hij gaat in belanden 
 const renderer = new THREE.WebGLRenderer({ antialias: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
 const host = document.querySelector("oefening-kaart");
 const container = host?.shadowRoot?.getElementById("animatie-container");
 
+// als het in een container staat dat de grote aanpast aan de container 
 if (container) {
 
     const breedte = container.clientWidth;
@@ -28,28 +29,30 @@ if (container) {
     renderer.setSize(window.innerWidth, window.innerHeight);
     document.body.appendChild(renderer.domElement);
 }
-
+// het licht instellen 
 scene.add(new THREE.AmbientLight(0xffffff, 1));
 const dirLight = new THREE.DirectionalLight(0xffffff, 0.8);
 dirLight.position.set(5, 10, 5);
 scene.add(dirLight);
-
+// De muisinteracties toevoegen 
 const controls = new OrbitControls(camera, renderer.domElement);
 controls.target.set(0, 1, 0);
 controls.enableDamping = true;
 
 
-// GRENSWAARDES (TensorFlow)
+// grenswaarden 
 
 const grenzen = {
     "mixamorigLeftLeg": { min: [-1.8, -1.5, -1.5], max: [0.5, 1.5, 1.5] },
     "mixamorigRightLeg": { min: [-1.8, -1.5, -1.5], max: [0.5, 1.5, 1.5] },
-    // "mixamorigLeftFoot": { min: [-0.5, -0.5, -0.5], max: [0.5, 0.5, 0.5] },
-    // "mixamorigRightFoot": { min: [-0.5, -0.5, -0.5], max: [0.5, 0.5, 0.5] },
     "mixamorigSpine": { min: [-0.5, -0.5, -0.4], max: [0.5, 0.5, 0.4] },
-    "mixamorigHips": { min: [-0.5, -1.0, -0.5], max: [0.5, 1.0, 0.5] }
+    "mixamorigHips": { min: [-0.5, -1.0, -0.5], max: [0.5, 1.0, 0.5] },
+    "mixamorigLeftArm": { min: [-0.5, -0.5, -0.5], max: [0.6, 0.5, 0.5] },
+    "mixamorigLeftForeArm": { min: [-0.5, -0.5, -0.5], max: [2.2, 0.5, 0.5] },
+    "mixamorigRightArm": { min: [-0.5, -0.5, -0.5], max: [0.5, 0.5, 0.5] },
+    "mixamorigRightForeArm": { min: [-0.5, -0.5, -0.5], max: [0.5, 0.5, 0.5] }
 };
-
+// grezen checken of ze juist zijn of er niets over schreid 
 function checkGrens(boneName, x, y, z) {
     const g = grenzen[boneName];
     if (!g) return [x, y, z];

@@ -20,7 +20,7 @@ class Oefeningkaart extends HTMLElement {
         fetch("../data/stappenplanV2.json")
             .then(r => r.json())
             .then(data => {
-                const oefening = this.zoekOefening(data, id); // this. niet data.
+                const oefening = this.zoekOefening(data, id);
 
                 if (!oefening) {
                     this.shadowRoot.innerHTML = `<p class="fout">Oefening "${id}" niet gevonden.</p>`;
@@ -38,8 +38,6 @@ class Oefeningkaart extends HTMLElement {
 
     laadAnimatie(houdingNaam) {
         window.houdingNaam = houdingNaam;
-        // Three.js is al geladen via importmap in HTML
-        // Alleen threeScene.js laden met de juiste houding
         const animScript = document.createElement("script");
         animScript.type = "module";
         animScript.src = `../javascript/threeScene.js?houding=${houdingNaam}&t=${Date.now()}`;
@@ -280,11 +278,11 @@ class Oefeningkaart extends HTMLElement {
             }
             if (blok.type === "lijst") {
                 return `
-                <p><strong>${blok.titel ?? ""}</strong></p>
-                <ul>
-                    ${blok.items.map(item => `<li>${item}</li>`).join("")}
-                </ul>
-                    `;
+                            <p><strong>${blok.titel ?? ""}</strong></p>
+                            <ul>
+                                ${blok.items.map(item => `<li>${item}</li>`).join("")}
+                            </ul>
+                                `;
             }
             return "";
         }).join("")}
@@ -301,11 +299,11 @@ class Oefeningkaart extends HTMLElement {
                 ${oefening.oefenvormen ? `
                 <div class="kaart">
                     <h2>Oefenvormen voor lesgevers</h2>
-                    ${oefening.oefenvormen.map(o => `
+                    ${oefening.oefenvormen.map(oefenvorm => `
                         <div style="margin-bottom:1rem;">
-                            <strong>${o.titel}</strong>
-                            <p>${o.beschrijving}</p>
-                            <em>Doel: ${o.doel}</em>
+                            <strong>${oefenvorm.titel}</strong>
+                            <p>${oefenvorm.beschrijving}</p>
+                            <em>Doel: ${oefenvorm.doel}</em>
                         </div>
                     `).join("")}
                 </div>

@@ -1,110 +1,34 @@
 import * as THREE from "three";
+const cursorScene = new THREE.Scene();
+const cursorCamera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 10);
+const cursorRenderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+cursorRenderer.setSize(256, 256);
 
-let active = false;
-let scene, camera, renderer, cursorMesh;
-let mouse = new THREE.Vector2();
-let raycaster = new THREE.Raycaster();
+cursorRenderer.domElement.style.cssText = `
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    width: 128px;
+    height: 128px;
+`;
 
-const button = document.getElementById("decoBtn");
+document.body.appendChild(cursorRenderer.domElement);
+const texture = new THREE.TextureLoader().load("../images/sneeuwvlokje.png");
+const sprite = new THREE.Sprite(new THREE.SpriteMaterial({ map: texture, transparent: true }));
+cursorScene.add(sprite);
 
-button.addEventListener("click", () => {
-    if (!active) {
-        startCursor();
-        button.textContent = "Deactiveer cursor";
-    } else {
-        stopCursor();
-        button.textContent = "Activeer cursor";
-    }
-    active = !active;
+let hoek = 0;
+document.addEventListener("mousemove", (e) => {
+    cursorRenderer.domElement.style.left = (e.clientX - 64) + "px";
+    cursorRenderer.domElement.style.top = (e.clientY - 64) + "px";
 });
 
-/* ======================
-START CURSOR
-====================== */
-function startCursor() {
-    document.body.classList.add("cursor-active");
-
-    scene = new THREE.Scene();
-
-    camera = new THREE.PerspectiveCamera(
-        75,
-        window.innerWidth / window.innerHeight,
-        0.1,
-        100
-    );
-    camera.position.z = 2;
-
-    renderer = new THREE.WebGLRenderer({ alpha: true });
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.domElement.classList.add("three-cursor");
-
-    document.body.appendChild(renderer.domElement);
-
-    // texture laden
-    const textureLoader = new THREE.TextureLoader();
-    const texture = textureLoader.load("../images/cursor.png"); // <-- pas pad aan
-
-    const geometry = new THREE.PlaneGeometry(0.15, 0.15);
-    const material = new THREE.MeshBasicMaterial({
-        map: texture,
-        transparent: true
-    });
-
-    cursorMesh = new THREE.Mesh(geometry, material);
-    scene.add(cursorMesh);
-
-    window.addEventListener("mousemove", onMouseMove);
-    window.addEventListener("resize", onResize);
-
-    animate();
+function animateCursor() {
+    requestAnimationFrame(animateCursor);
+    hoek += 0.02;
+    sprite.material.rotation = hoek;
+    cursorRenderer.render(cursorScene, cursorCamera);
 }
+animateCursor();
 
-/* ======================
-STOP CURSOR
-====================== */
-function stopCursor() {
-    document.body.classList.remove("cursor-active");
-
-    window.removeEventListener("mousemove", onMouseMove);
-    window.removeEventListener("resize", onResize);
-
-    if (renderer) {
-        document.body.removeChild(renderer.domElement);
-        renderer.dispose();
-    }
-}
-
-/* ======================
-EVENTS
-====================== */
-function onMouseMove(event) {
-    mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
-    mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
-}
-
-function onResize() {
-    camera.aspect = window.innerWidth / window.innerHeight;
-    camera.updateProjectionMatrix();
-    renderer.setSize(window.innerWidth, window.innerHeight);
-}
-
-/* ======================
-LOOP
-====================== */
-function animate() {
-    if (!active) return;
-
-    requestAnimationFrame(animate);
-
-    raycaster.setFromCamera(mouse, camera);
-
-    const distance = 1;
-    const pos = new THREE.Vector3();
-    pos.copy(camera.position).add(
-        raycaster.ray.direction.multiplyScalar(distance)
-    );
-
-    cursorMesh.position.copy(pos);
-
-    renderer.render(scene, camera);
-}
+document.body.style.cursor = "none";

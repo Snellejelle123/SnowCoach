@@ -8,12 +8,10 @@ const PORT = 3000;
 const BASE_URL = process.env.BASE_URL || `http://localhost:${PORT}`;
 
 app.use(express.static("."));
-app.use(express.urlencoded({ extended: true })); // ✅ bovenaan
-app.use(express.json());                         // ✅ voor JSON body
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
-/* =========================
-   RSS ROUTE
-========================= */
+// rss aanmaken op /rss.xml 
 app.get("/rss.xml", async (req, res) => {
     const categorieFilter = req.query.categorie;
 
@@ -59,16 +57,19 @@ app.get("/rss.xml", async (req, res) => {
 </rss>`);
 });
 
-/* =========================
-   RSS INFO PAGINA
-========================= */
+
+
+
+// rss info webpagina + webmention info pagina 
 app.get("/rss", (req, res) => {
     res.sendFile(path.resolve("html/rss.html"));
 });
 
-/* =========================
-   WEBMENTION ONTVANGEN
-========================= */
+
+
+
+
+// webmention versturen 
 app.post("/webmention", async (req, res) => {
     const source = req.body.source;
     const target = req.body.target;
@@ -86,7 +87,7 @@ app.post("/webmention", async (req, res) => {
         const raw = await readFile("./data/webmentions.json", "utf-8");
         mentions = JSON.parse(raw);
     } catch {
-        // bestand bestaat nog niet
+
     }
 
     mentions.push({
@@ -102,18 +103,23 @@ app.post("/webmention", async (req, res) => {
     res.status(202).send("Webmention ontvangen");
 });
 
-/* =========================
-   WEBMENTION API
-========================= */
+
+
+
+// webmention lezen 
 app.get("/api/webmentions", async (req, res) => {
     try {
-        const raw = await readFile("./data/webmentions.json", "utf-8"); // ✅ correct pad
+        const raw = await readFile("./data/webmentions.json", "utf-8");
         res.json(JSON.parse(raw));
     } catch {
         res.json([]);
     }
 });
 
+
+
+
+// webmention goedkeuren  
 app.post("/admin/webmentions/:id/goedkeuren", async (req, res) => {
     const raw = await readFile("./data/webmentions.json", "utf-8");
     const mentions = JSON.parse(raw);
@@ -124,6 +130,10 @@ app.post("/admin/webmentions/:id/goedkeuren", async (req, res) => {
     res.json({ bericht: "Goedgekeurd" });
 });
 
+
+
+
+// webmention verwijderen  
 app.delete("/admin/webmentions/:id", async (req, res) => {
     const raw = await readFile("./data/webmentions.json", "utf-8");
     let mentions = JSON.parse(raw);
@@ -132,14 +142,17 @@ app.delete("/admin/webmentions/:id", async (req, res) => {
     res.json({ bericht: "Verwijderd" });
 });
 
-/* =========================
-   START SERVER
-========================= */
+
+
+//server starten voor rss en webmention 
 app.listen(PORT, () => {
     console.log(`Server draait op ${BASE_URL}`);
     stuurWebmentionsAutomatisch();
 });
 
+
+
+//Dit is voor rss feed aan te maken als er een datum bij staat in de stappenplan voegd hij het toe 
 function extractItems(node, categorie = null) {
     let result = [];
 
@@ -163,11 +176,13 @@ function extractItems(node, categorie = null) {
 
     return result;
 }
-/* =========================
-   WEBMENTIONS AUTO-VERSTUREN BIJ SERVERSTART
-========================= */
+
+
+
+
+// webmentions automatisch versturen behalve als het al eens is verstuurd 
 async function stuurWebmentionsAutomatisch() {
-    console.log("🔍 Webmentions scannen...");
+    console.log("Webmentions scannen...");
 
     let data;
     try {
@@ -200,7 +215,7 @@ async function stuurWebmentionsAutomatisch() {
             const sleutel = `${source}::${targetUrl}`;
 
             if (alVerstuurd.includes(sleutel)) {
-                console.log(`⏭ Al verstuurd: ${targetUrl}`);
+                console.log(`Al verstuurd: ${targetUrl}`);
                 continue;
             }
 
@@ -212,9 +227,10 @@ async function stuurWebmentionsAutomatisch() {
                 const match =
                     html.match(/<link[^>]+rel=["']webmention["'][^>]+href=["']([^"']+)["']/i) ||
                     html.match(/<link[^>]+href=["']([^"']+)["'][^>]+rel=["']webmention["']/i);
+                // <link rel="webmention" href="https://snowcoach-production.up.railway.app/webmention" />
 
                 if (!match) {
-                    console.log(`⚠ Geen webmention endpoint op: ${targetUrl}`);
+                    console.log(`Geen webmention endpoint op: ${targetUrl}`);
                     continue;
                 }
 
@@ -226,20 +242,16 @@ async function stuurWebmentionsAutomatisch() {
                     body: `source=${encodeURIComponent(source)}&target=${encodeURIComponent(targetUrl)}`
                 });
 
-                console.log(`✅ Webmention verstuurd naar ${endpoint} — status: ${wmRes.status}`);
+                console.log(`Webmention verstuurd naar ${endpoint} — status: ${wmRes.status}`);
 
                 alVerstuurd.push(sleutel);
                 await writeFile("./data/webmentions-sent.json", JSON.stringify(alVerstuurd, null, 2));
 
             } catch (err) {
-                console.error(`❌ Fout bij versturen naar ${targetUrl}:`, err.message);
+                console.error(`Fout bij versturen naar ${targetUrl}:`, err.message);
             }
         }
     }
 
-    console.log("✅ Webmention scan klaar");
+    console.log("Webmention scan klaar");
 }
-watch("./data/stappenplanV2.json", () => {
-    console.log("📄 JSON gewijzigd, opnieuw scannen...");
-    stuurWebmentionsAutomatisch();
-});

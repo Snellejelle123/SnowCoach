@@ -7,6 +7,13 @@
     padding: 0;
 }
 
+*,
+*:hover,
+button,
+a {
+    cursor: none !important;
+}
+
 :root {
     --blue-900: #042C53;
     --blue-800: #0C447C;
@@ -98,7 +105,9 @@ nav a:hover {
 .top-section {
     text-align: center;
     padding: 4rem 2rem;
-    background: linear-gradient(155deg, var(--blue-900) 0%, var(--blue-800) 90%, var(--blue-600) 100%);
+    background:
+        linear-gradient(155deg, rgba(4, 44, 83, 0.75) 0%, rgba(12, 68, 124, 0.6) 90%, rgba(24, 95, 165, 0.5) 100%),
+        url('../images/uitzicht.webp') center/cover no-repeat;
     color: var(--blue-50);
 }
 
